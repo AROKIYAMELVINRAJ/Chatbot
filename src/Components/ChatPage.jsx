@@ -8,8 +8,13 @@ import { RiContactsLine } from "react-icons/ri";
 import logo from "../assets/logo02.svg";
 import "./ChatPage.css";
 
-const API_BASE =
-  "http://ec2-13-54-7-23.ap-southeast-2.compute.amazonaws.com";
+// const API_BASE =
+//   "http://ec2-3-27-67-12.ap-southeast-2.compute.amazonaws.com";
+const API_BASE = "/api";
+// const API_BASE =
+//   import.meta.env.MODE === "development"
+//     ? "/api" // handled by Vite proxy in dev
+//     : "http://ec2-3-27-67-12.ap-southeast-2.compute.amazonaws.com";
 
 // ✅ Menu Config
 const MENU_CONFIG = {
@@ -284,6 +289,7 @@ const handleSend = async () => {
         }
 
         const data = await res.json();
+        // console.log("✅ API Response (create user):", data);
         setUserId(data.UserID);
 
         // start conversation
@@ -293,6 +299,7 @@ const handleSend = async () => {
           body: JSON.stringify({ user_id: data.UserID }),
         });
         const conv = await res2.json();
+        // console.log("✅ API Response (start conversation):", conv);
         setSessionId(conv.session_id);
 
         setStage("mainMenu");
@@ -555,7 +562,7 @@ const handleSend = async () => {
           </div>
         )}
         <div className="powered-by">
-          Powered by <a href="https://troudz.com/" target="_black">Troudz</a>
+          Powered by <a href="https://troudz.com/" target="_black">TROUDZ AI LABS</a>
         </div>
       </div>
 
