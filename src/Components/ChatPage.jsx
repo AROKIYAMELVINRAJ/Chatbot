@@ -9,7 +9,7 @@ import logo from "../assets/logo02.svg";
 import "./ChatPage.css";
 
 const API_BASE =
-  "http://ec2-13-54-7-23.ap-southeast-2.compute.amazonaws.com";
+  "http://ec2-3-27-67-12.ap-southeast-2.compute.amazonaws.com";
 
 // ✅ Menu Config
 const MENU_CONFIG = {
@@ -555,7 +555,7 @@ const handleSend = async () => {
           </div>
         )}
         <div className="powered-by">
-          Powered by <a href="https://troudz.com/" target="_black">Troudz</a>
+          Powered by <a href="https://troudz.com/" target="_black">Troudz AI Labs</a>
         </div>
       </div>
 

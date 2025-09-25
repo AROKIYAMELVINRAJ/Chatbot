@@ -4,6 +4,8 @@
   const chatButton = document.createElement("div");
  chatButton.innerHTML = `<img src="/about02.png" alt="Chat" style="width: 24px; height: 24px;" />`;
 
+
+
   Object.assign(chatButton.style, {
     position: "fixed",
     bottom: "60px",
@@ -16,6 +18,10 @@
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    // backgroundImage: "url('/about02.png')",
+    // backgroundSize: "contain",
+    // backgroundPosition: "center",
+    // backgroundRepeat: "no-repeat",
     cursor: "pointer",
     zIndex: "9999",
     fontSize: "24px",
@@ -38,12 +44,16 @@
     display: "none", // initially hidden
   });
 
-  const iframe = document.createElement("iframe");
-  iframe.src = "https://chatassistent5.netlify.app";
-  iframe.style.width = "100%";
-  iframe.style.height = "100%";
-  iframe.style.border = "none";
-  chatContainer.appendChild(iframe);
+const iframe = document.createElement("iframe");
+iframe.src = "https://chatassistent5.netlify.app";
+Object.assign(iframe.style, {
+  width: "100%",
+  height: "100%",
+  border: "none",
+  display: "block", // prevents inline gap
+});
+chatContainer.appendChild(iframe);
+
   document.body.appendChild(chatContainer);
 
   // === Toggle Chat Window (without API call) ===
