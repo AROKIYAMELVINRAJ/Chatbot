@@ -1,8 +1,9 @@
-
 (function () {
   // === Floating Button ===
   const chatButton = document.createElement("div");
- chatButton.innerHTML = `<img src="/about02.png" alt="Chat" style="width: 24px; height: 24px;" />`;
+  chatButton.innerHTML = `<img src="https://troudz-chatbot.netlify.app/favicon.ico" alt="Chat" style="width: 20px; height: 20px;" />`;
+
+
 
 
 
@@ -12,7 +13,7 @@
     right: "10px",
     width: "40px",
     height: "40px",
-    background: "#000",
+    background: "#fff",
     color: "#fff",
     borderRadius: "50%",
     display: "flex",
@@ -34,18 +35,19 @@
     position: "fixed",
     bottom: "90px",
     right: "20px",
-    width: "400px",
-    height: "600px",
-    border: "none",
+    width: "90vw",      // responsive width
+    maxWidth: "400px",  // max width for large screens
+    height: "80vh",     // responsive height
+    maxHeight: "600px", // max height for large screens
     borderRadius: "10px",
     overflow: "hidden",
     boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
     zIndex: "9999",
-    display: "none", // initially hidden
+    display: "none",
   });
 
 const iframe = document.createElement("iframe");
-iframe.src = "https://chatassistent5.netlify.app";
+iframe.src = "https://troudz-chatbot.netlify.app/";
 Object.assign(iframe.style, {
   width: "100%",
   height: "100%",
@@ -60,5 +62,14 @@ chatContainer.appendChild(iframe);
   chatButton.addEventListener("click", () => {
     const isHidden = chatContainer.style.display === "none";
     chatContainer.style.display = isHidden ? "block" : "none";
+  });
+
+  
+  // Optional: adjust size on window resize
+  window.addEventListener("resize", () => {
+    const width = Math.min(window.innerWidth * 0.9, 400);
+    const height = Math.min(window.innerHeight * 0.8, 600);
+    chatContainer.style.width = width + "px";
+    chatContainer.style.height = height + "px";
   });
 })();
