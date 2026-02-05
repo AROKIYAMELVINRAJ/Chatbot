@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ChatPage from './Components/ChatPage'
+import ChatPage from './Components/Chat/ChatPage1'
 
 function App() {
 
